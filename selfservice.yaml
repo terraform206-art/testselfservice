@@ -57,7 +57,7 @@ spec:
         project:
           title: project
           description: Select project
-          resource: projects        
+          resource: project    
         scmType:
           title: Select source control option
           type: string
