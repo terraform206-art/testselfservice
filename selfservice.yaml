@@ -95,7 +95,7 @@ spec:
            organization: ${{ parameters.organization }}
            jobInventory: ${{ parameters.jobInventory }}
            playbook: 'hello_world.yml'
-           executionEnvironment: 'Default execution environment'
+           executionEnvironment: ${{ parameters.executionEnvironment}}
            credentials: ${{ parameters.credentials }}
     # - id: launch-job
     #   name: Launch job template
