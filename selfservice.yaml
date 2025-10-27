@@ -60,9 +60,9 @@ spec:
           resource: projects
           ui:field: AAPResourcePicker            
         executionEnvironment:
-          title: executionEnvironments
+          title: executionEnv
           description: Select project
-          resource: executionEnvironment
+          resource: execution environment
           ui:field: AAPResourcePicker           
                   
         scmType:
