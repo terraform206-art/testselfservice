@@ -98,5 +98,13 @@ spec:
            executionEnvironment: ${{ parameters.executionEnvironment}}
            credentials: ${{ parameters.credentials }}
 
+     - id: launch-job
+       name: Launch job template
+       action: rhaap:launch-job-template
+       input:
+         token: ${{ parameters.token }}
+         values:
+           template: ${{steps['create-template'].output.template}}           
+
 
 
