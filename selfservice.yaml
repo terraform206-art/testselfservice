@@ -18,20 +18,20 @@ spec:
           title: Token
           type: string
           description: Oauth2 token
-          ui:field: AAPTokenField
+          # ui:field: AAPTokenField
           # ui:backstage:
           #   review:
           #     show: false
-        controllerHost:
-          type: string
-          title: Controller URL
-          default: https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io
-        controllerUsername:
-          type: string
-          title: Controller Username
-        controllerPassword:
-          type: string
-          title: Controller Password
+        # controllerHost:
+        #   type: string
+        #   title: Controller URL
+        #   default: https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io
+        # controllerUsername:
+        #   type: string
+        #   title: Controller Username
+        # controllerPassword:
+        #   type: string
+        #   title: Controller Password
           #ui:widget: password      
         organization:
           title: Organization
