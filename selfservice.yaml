@@ -14,6 +14,14 @@ spec:
       #   - environment
       #   - server_name
       properties:
+        token:
+          title: Token
+          type: string
+          description: Oauth2 token
+          ui:field: AAPTokenField
+          ui:backstage:
+            review:
+              show: false
         controllerHost:
           type: string
           title: Controller URL
@@ -25,16 +33,62 @@ spec:
           type: string
           title: Controller Password
           #ui:widget: password      
-        AAP_TOKEN:
+        organization:
+          title: Organization
+          description: Select organization
+          resource: organizations
+          ui:field: AAPResourcePicker
+          default:
+            id: 1
+            name: Default
+        jobInventory:
+          title: Inventory
+          description: Select inventory
+          resource: inventories
+          ui:field: AAPResourcePicker
+          default:
+            id: 1
+            name: Default
+        credentials:
+          title: Credentials
+          description: Select SCM credential for Private repositories
+          resource: credentials
+          ui:field: AAPResourcePicker     
+        project:
+          title: project
+          description: Select project
+          resource: projects        
+        scmType:
+          title: Select source control option
           type: string
-          title: aaptoken
+          description: Select the source control option for your Ansible project.
+          default: Github
+          enum:
+            - Github
+            - Gitlab          
 
   steps:
-    - id: launch-job
-      name: Launch job template
-      action: rhaap:launch-job-template
-      input:
-        token: ${{ parameters.AAP_TOKEN }}
-        values:
-          template: "https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io/api/controller/v2/job_templates/9"
+     - id: create-template
+       name: Create job template
+       action: rhaap:create-job-template
+       input:
+         token: ${{ parameters.token }}
+         deleteIfExist: true
+         values:
+           templateName: 'Self Service Job Template'
+           templateDescription: 'Self Service Job Template'
+           scmType: ${{ parameters.scmType }}
+           project: ${{parameters.project }}
+           organization: ${{ parameters.organization }}
+           jobInventory: ${{ parameters.jobInventory }}
+           playbook: hello_world.yml
+           executionEnvironment: Default execution environment
+           credentials: ${{ parameters.credentials }}
+    # - id: launch-job
+    #   name: Launch job template
+    #   action: rhaap:launch-job-template
+    #   input:
+    #     token: ${{ parameters.AAP_TOKEN }}
+    #     values:
+    #       template: "https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io/api/controller/v2/job_templates/9"
 
