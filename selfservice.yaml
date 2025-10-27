@@ -97,13 +97,11 @@ spec:
            playbook: 'hello_world.yml'
            executionEnvironment: ${{ parameters.executionEnvironment}}
            credentials: ${{ parameters.credentials }}
-    # - id: launch-job
-    #   name: Launch job template
-    #   action: rhaap:launch-job-template
-    #   input:
-    #     token: ${{ parameters.AAP_TOKEN }}
-    #     values:
-    #       template: "https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io/api/controller/v2/job_templates/9"
 
 
+  output:
+    text:
+      - title: 'op'
+        content: |
+          **Job ID:** `${{ parameters.organization }} `  
 
