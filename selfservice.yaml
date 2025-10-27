@@ -104,7 +104,7 @@ spec:
        input:
          token: ${{ parameters.token }}
          values:
-           template: ${{steps['create-template'].output.template}}           
+           template: ${{steps['create-template'].output.template.name}}           
 
 
 
