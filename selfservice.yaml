@@ -36,7 +36,7 @@ spec:
           environment: ${{ parameters.environment }}
           server_name: ${{ parameters.server_name }}
 
-  output:
-    text: |
-      AAP job triggered successfully!
-      View it in AAP: ${{ steps.runJob.output.jobUrl }}
+  # output:
+  #   text: |
+  #     AAP job triggered successfully!
+  #     View it in AAP: ${{ steps.runJob.output.jobUrl }}
