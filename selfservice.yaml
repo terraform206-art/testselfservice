@@ -54,10 +54,11 @@ spec:
           description: Select SCM credential for Private repositories
           resource: credentials
           ui:field: AAPResourcePicker     
-        # project:
-        #   title: project
-        #   description: Select project
-        #   resource: project    
+        project:
+          title: project
+          description: Select project
+          resource: project    
+          ui:field: AAPResourcePicker            
         scmType:
           title: Select source control option
           type: string
