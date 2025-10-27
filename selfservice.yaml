@@ -68,23 +68,29 @@ spec:
             - Github
             - Gitlab          
 
-  # steps:
-  #    - id: create-template
-  #      name: Create job template
-  #      action: rhaap:create-job-template
-  #      input:
-  #        token: ${{ parameters.token }}
-  #        deleteIfExist: true
-  #        values:
-  #          templateName: 'Self Service Job Template'
-  #          templateDescription: 'Self Service Job Template'
-  #          scmType: ${{ parameters.scmType }}
-  #          project: Demo Project new
-  #          organization: ${{ parameters.organization }}
-  #          jobInventory: ${{ parameters.jobInventory }}
-  #          playbook: hello_world.yml
-  #          executionEnvironment: Default execution environment
-  #          credentials: ${{ parameters.credentials }}
+  output:
+    text:
+      - title: 'op'
+        content: |
+          **Job ID:** `${{ parameters.organization }} `            
+
+  steps:
+     - id: create-template
+       name: Create job template
+       action: rhaap:create-job-template
+       input:
+         token: ${{ parameters.token }}
+         deleteIfExist: true
+         values:
+           templateName: 'Self Service Job Template'
+           templateDescription: 'Self Service Job Template'
+           scmType: ${{ parameters.scmType }}
+           project: Demo Project new
+           organization: ${{ parameters.organization }}
+           jobInventory: ${{ parameters.jobInventory }}
+           playbook: hello_world.yml
+           executionEnvironment: Default execution environment
+           credentials: ${{ parameters.credentials }}
     # - id: launch-job
     #   name: Launch job template
     #   action: rhaap:launch-job-template
@@ -93,9 +99,5 @@ spec:
     #     values:
     #       template: "https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io/api/controller/v2/job_templates/9"
 
-  output:
-    text:
-      - title: 'op'
-        content: |
-          **Job ID:** `${{ parameters.organization }} `
+
 
