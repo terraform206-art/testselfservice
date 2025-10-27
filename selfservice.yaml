@@ -18,10 +18,10 @@ spec:
           title: Token
           type: string
           description: Oauth2 token
-          # ui:field: AAPTokenField
-          # ui:backstage:
-          #   review:
-          #     show: false
+          ui:field: AAPTokenField
+          ui:backstage:
+            review:
+              show: false
         # controllerHost:
         #   type: string
         #   title: Controller URL
