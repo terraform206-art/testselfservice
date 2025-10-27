@@ -22,16 +22,27 @@ spec:
           type: string
           title: Server Name
           description: Target server for deployment
+        controllerHost:
+          type: string
+          title: Controller URL
+          default: https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io
+        controllerUsername:
+          type: string
+          title: Controller Username
+        controllerPassword:
+          type: string
+          title: Controller Password
+          #ui:widget: password            
 
   steps:
     - id: runJob
       name: Run AAP Job Template
       action: ansible:job:run
       input:
-        controllerHost: https://aap.example.com
-        controllerUsername: ${{ secrets.AAP_USERNAME }}
-        controllerPassword: ${{ secrets.AAP_PASSWORD }}
-        jobTemplateName: "Deploy Application"
+        controllerHost: ${{ parameters.controllerHost }}
+        controllerUsername: ${{ parameters.controllerUsername }}
+        controllerPassword: ${{ parameters.controllerPassword }}
+        jobTemplateName: "new test"
         extraVars:
           environment: ${{ parameters.environment }}
           server_name: ${{ parameters.server_name }}
