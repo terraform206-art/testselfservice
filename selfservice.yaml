@@ -38,6 +38,7 @@ spec:
           title: aaptoken
 
   steps:
+  
     # - id: runJob
     #   name: Run AAP Job Template
     #   action: ansible:job:run
@@ -49,20 +50,28 @@ spec:
     #     extraVars:
     #       environment: ${{ parameters.environment }}
     #       server_name: ${{ parameters.server_name }}
-  
-    - id: triggerJob
-      name: Trigger AAP Job via API
-      action: http:request
+
+    - id: launch-job
+      name: Launch job template
+      action: rhaap:launch-job-template
       input:
-        url: https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io/api/controller/v2/job_templates/9/launch/
-        method: POST
-        headers:
-          Authorization: "Bearer ${{ parameters.AAP_TOKEN }}"
-          Content-Type: application/json
-        body:
-          extra_vars:
-            environment: ${{ parameters.environment }}
-            server_name: ${{ parameters.server_name }}
+        token: ${{ parameters.AAP_TOKEN }}
+        values:
+          template: https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io/api/controller/v2/job_templates/9/
+  
+    # - id: triggerJob
+    #   name: Trigger AAP Job via API
+    #   action: http:request
+    #   input:
+    #     url: https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io/api/controller/v2/job_templates/9/launch/
+    #     method: POST
+    #     headers:
+    #       Authorization: "Bearer ${{ parameters.AAP_TOKEN }}"
+    #       Content-Type: application/json
+    #     body:
+    #       extra_vars:
+    #         environment: ${{ parameters.environment }}
+    #         server_name: ${{ parameters.server_name }}
 
           
 
