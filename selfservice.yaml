@@ -14,14 +14,6 @@ spec:
       #   - environment
       #   - server_name
       properties:
-        # environment:
-        #   type: string
-        #   title: Environment
-        #   description: Target environment (dev, qa, prod)
-        # server_name:
-        #   type: string
-        #   title: Server Name
-        #   description: Target server for deployment
         controllerHost:
           type: string
           title: Controller URL
@@ -38,44 +30,11 @@ spec:
           title: aaptoken
 
   steps:
-  
-    # - id: runJob
-    #   name: Run AAP Job Template
-    #   action: ansible:job:run
-    #   input:
-    #     controllerHost: ${{ parameters.controllerHost }}
-    #     controllerUsername: ${{ parameters.controllerUsername }}
-    #     controllerPassword: ${{ parameters.controllerPassword }}
-    #     jobTemplateName: "new test"
-    #     extraVars:
-    #       environment: ${{ parameters.environment }}
-    #       server_name: ${{ parameters.server_name }}
-
     - id: launch-job
       name: Launch job template
       action: rhaap:launch-job-template
       input:
         token: ${{ parameters.AAP_TOKEN }}
         values:
-          template: https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io/api/controller/v2/job_templates/9/
-  
-    # - id: triggerJob
-    #   name: Trigger AAP Job via API
-    #   action: http:request
-    #   input:
-    #     url: https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io/api/controller/v2/job_templates/9/launch/
-    #     method: POST
-    #     headers:
-    #       Authorization: "Bearer ${{ parameters.AAP_TOKEN }}"
-    #       Content-Type: application/json
-    #     body:
-    #       extra_vars:
-    #         environment: ${{ parameters.environment }}
-    #         server_name: ${{ parameters.server_name }}
+          template: "https://new-aap-aap.apps.cluster-xxf9p.dynamic.redhatworkshops.io/api/controller/v2/job_templates/9"
 
-          
-
-  # output:
-  #   text: |
-  #     AAP job triggered successfully!
-  #     View it in AAP: ${{ steps.runJob.output.jobUrl }}
