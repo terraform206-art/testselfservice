@@ -57,7 +57,7 @@ spec:
         project:
           title: project
           description: Select project
-          resource: project    
+          resource: projects
           ui:field: AAPResourcePicker            
         scmType:
           title: Select source control option
