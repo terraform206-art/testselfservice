@@ -14,14 +14,14 @@ spec:
         - environment
         - server_name
       properties:
-        environment:
-          type: string
-          title: Environment
-          description: Target environment (dev, qa, prod)
-        server_name:
-          type: string
-          title: Server Name
-          description: Target server for deployment
+        # environment:
+        #   type: string
+        #   title: Environment
+        #   description: Target environment (dev, qa, prod)
+        # server_name:
+        #   type: string
+        #   title: Server Name
+        #   description: Target server for deployment
         controllerHost:
           type: string
           title: Controller URL
