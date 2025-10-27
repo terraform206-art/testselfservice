@@ -54,10 +54,10 @@ spec:
           description: Select SCM credential for Private repositories
           resource: credentials
           ui:field: AAPResourcePicker     
-        project:
-          title: project
-          description: Select project
-          resource: project    
+        # project:
+        #   title: project
+        #   description: Select project
+        #   resource: project    
         scmType:
           title: Select source control option
           type: string
@@ -78,7 +78,7 @@ spec:
            templateName: 'Self Service Job Template'
            templateDescription: 'Self Service Job Template'
            scmType: ${{ parameters.scmType }}
-           project: ${{parameters.project }}
+           project: Demo Project new
            organization: ${{ parameters.organization }}
            jobInventory: ${{ parameters.jobInventory }}
            playbook: hello_world.yml
