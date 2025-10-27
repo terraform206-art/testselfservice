@@ -99,9 +99,4 @@ spec:
            credentials: ${{ parameters.credentials }}
 
 
-  output:
-    text:
-      - title: 'op'
-        content: |
-          **Job ID:** `${{ parameters.organization }} `  
 
