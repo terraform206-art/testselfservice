@@ -10,9 +10,9 @@ spec:
 
   parameters:
     - title: AAP Job Inputs
-      required:
-        - environment
-        - server_name
+      # required:
+      #   - environment
+      #   - server_name
       properties:
         # environment:
         #   type: string
