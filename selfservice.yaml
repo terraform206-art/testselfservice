@@ -59,6 +59,12 @@ spec:
           description: Select project
           resource: projects
           ui:field: AAPResourcePicker            
+        executionEnvironment:
+          title: executionEnvironment
+          description: Select project
+          resource: executionEnvironments
+          ui:field: AAPResourcePicker           
+                  
         scmType:
           title: Select source control option
           type: string
@@ -85,7 +91,7 @@ spec:
            templateName: 'Self Service Job Template'
            templateDescription: 'Self Service Job Template'
            scmType: ${{ parameters.scmType }}
-           project: Demo Project new
+           project: ${{ parameters.project }}
            organization: ${{ parameters.organization }}
            jobInventory: ${{ parameters.jobInventory }}
            playbook: hello_world.yml
